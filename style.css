@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    background: rgb(102, 151, 151);
+}
+
+#info {
+    position: absolute;
+    top: 35px;
+    width: 500px;
+    text-align: center;
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#container h2 {
+    text-align: center;
+    margin-top: 160px;
+}
+
+.selected {
+    position: relative;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    padding: 17px 32px 17px 17px;
+    border-radius: 6px;
+    width: 310px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.selected::before {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 15px;
+    background-image: url("svgs/arrow-down.svg");
+    width: 20px;
+    height: 20px;
+    transition: all .4s;
+}
+
+.selected.ryż::before {
+    transform: translateY(-50%) rotateX(180deg);
+}
+
+.options-container {
+    transition: all .3s;
+    background: rgba(255, 255, 255, 50%);
+    color: white;
+    border-radius: 6px;
+    max-height: 0;
+    overflow-y: scroll;
+    scrollbar-color: rgb(183, 187, 187) rgb(52, 73, 73) ;
+    scrollbar-width: thin;
+}
+
+.options-container::-webkit-scrollbar {
+    background: rgb(52, 73, 73);
+    width: 8px;
+    border-radius: 4px 6px 6px 4px;
+}
+
+.options-container::-webkit-scrollbar-thumb {
+    background-color: rgb(183, 187, 187);
+    border-radius: 4px 6px 6px 4px;
+}
+
+.options-container.active {
+    max-height: 240px;
+}
+
+.checkbox {
+    appearance: none;
+    display: none;
+}
+
+.option {
+    background-color: rgb(20, 20, 20);
+    padding: 12px 17px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: rgba(20, 20, 20, 80%);
+}
+
+.option.focused {
+    background: rgba(20, 20, 20, 80%);
+}
+
+.option.checked {
+    background: rgba(20, 20, 20, 65%);
+}
+
+.option label {
+    pointer-events: none;
+}
