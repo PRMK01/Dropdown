@@ -51,12 +51,12 @@ selected.addEventListener('keydown', e => {
 allOptions.forEach(option => {
     option.addEventListener('mousedown', () => {
         updateOption(option);
-        rollOptionsList(action = 'remove');
+        rollOptionsList('remove');
     })
 })
 
 selected.addEventListener('blur', () => {
-    rollOptionsList(action = 'remove');
+    rollOptionsList('remove');
 })
 
 function updateOption (option) {
